@@ -1,9 +1,9 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomiclabs/hardhat-waffle";
-import "@typechain/hardhat";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.12",
+  solidity: "0.8.9",
+  defaultNetwork: "localhost",
 };
 
 export default config;
