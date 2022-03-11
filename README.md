@@ -19,4 +19,4 @@ This challenge is based on https://ethernaut.openzeppelin.com/
   - And finally, the **README**. On this one you'll get level instructions, along with all the resources needed to clear it!
 - After you're done writing your hack, run the following command to run the tests and see if you succesfully breached the contract:
   - `npx hardhat test contracts/{contract directory}/{contract name}.test.ts`
-  - Example: `npx hardhat test contracts/1. CoinFlip/CoinFlip.test.ts`
+  - Example: `npx hardhat test "contracts/1. CoinFlip/CoinFlip.test.ts"`
