@@ -1,19 +1,17 @@
-const { expect } = require("chai");
-const { parseEther } = require("ethers/lib/utils");
+import { expect } from "chai";
 const { ethers } = require("hardhat");
 
-let victim: any;
-let attacker: any;
-let hacker: any;
-let deployer: any;
+let tokenVictim: any;
+let tokenAttacker: any;
+// let deployer: any;
 
 describe("Attacking Token", function () {
   beforeEach(async () => {
-    [hacker, deployer] = await ethers.getSigners();
+    // const [hacker, deployer] = await ethers.getSigners();
     const Victim = await ethers.getContractFactory("Token");
-    victim = await Victim.connect(deployer).deploy(20);
+    tokenVictim = await Victim.deploy(20);
     const Attacker = await ethers.getContractFactory("AttackingToken");
-    attacker = await Attacker.deploy(victim.address);
+    tokenAttacker = await Attacker.deploy(tokenVictim.address);
   });
 
   async function hackContract() {
@@ -23,7 +21,7 @@ describe("Attacking Token", function () {
   // Get this to pass!
   it("Succesfully get your hands on more than 20 tokens", async () => {
     await hackContract();
-    const tokens = await victim.balanceOf(attacker.address);
+    const tokens = await tokenVictim.balanceOf(tokenAttacker.address);
     expect(tokens).to.be.above(20);
   });
 });
