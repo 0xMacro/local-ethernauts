@@ -3,13 +3,12 @@ const { ethers } = require("hardhat");
 
 let victim: any;
 
-describe("Attacking Delegation", function () {
+describe("Attacking Force", function () {
   beforeEach(async () => {
-    const [hacker, deployer] = await ethers.getSigners();
     const Victim = await ethers.getContractFactory("Force");
-    victim = await Victim.connect(deployer).deploy();
+    victim = await Victim.deploy();
     const Attacker = await ethers.getContractFactory("AttackingForce");
-    await Attacker.connect(hacker).deploy(victim.address);
+    await Attacker.deploy(victim.address);
   });
 
   async function hackContract() {
