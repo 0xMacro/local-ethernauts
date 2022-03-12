@@ -1,16 +1,15 @@
-const { expect } = require("chai");
-const { ethers, waffle } = require("hardhat");
+import { expect } from "chai";
+import { ethers, waffle } from "hardhat";
 
 let victim: any;
 let attacker: any;
 
 describe("Attacking Reentrance", function () {
   beforeEach(async () => {
-    const [hacker, deployer] = await ethers.getSigners();
     const Victim = await ethers.getContractFactory("Reentrance");
-    victim = await Victim.connect(deployer).deploy({ value: 10 });
+    victim = await Victim.deploy({ value: 10 });
     const Attacker = await ethers.getContractFactory("AttackingReentrance");
-    attacker = await Attacker.connect(hacker).deploy(victim.address);
+    attacker = await Attacker.deploy(victim.address);
   });
 
   async function hackContract() {

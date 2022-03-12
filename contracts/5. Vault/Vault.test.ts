@@ -1,24 +1,25 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import { expect } from "chai";
+import { ethers } from "hardhat";
 
 let victim: any;
-let delegate: any;
 
 describe("Attacking Vault", function () {
   beforeEach(async () => {
-    const [hacker, deployer] = await ethers.getSigners();
     const Victim = await ethers.getContractFactory("Vault");
-    victim = await Victim.connect(deployer).deploy(
+    victim = await Victim.deploy(
       ethers.utils.formatBytes32String("A very strong password")
     );
     const Attacker = await ethers.getContractFactory("AttackingVault");
-    await Attacker.connect(hacker).deploy(victim.address);
+    await Attacker.deploy(victim.address);
   });
 
   async function hackContract() {
     // Code me!
-    // Note: Unlock without using the string "A very strong password"
-    // see if you can do it by reading the password from the vault directly
+    /* 
+      Note: Unlock without using the string "A very strong password"
+      Unlock the vault by somehow reading the private password from 
+      Vault directly
+    */
   }
 
   // Get this to pass!

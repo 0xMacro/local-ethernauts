@@ -1,5 +1,5 @@
-const { expect } = require("chai");
-const { ethers } = require("hardhat");
+import { expect } from "chai";
+import { ethers } from "hardhat";
 
 let victim: any;
 let attacker: any;
@@ -7,8 +7,8 @@ let player: any;
 
 describe("Attacking King", function () {
   beforeEach(async () => {
-    const [hacker, deployer, randomPlayer] = await ethers.getSigners();
-    player = randomPlayer;
+    const [hacker, deployer, kingPlayer] = await ethers.getSigners();
+    player = kingPlayer;
     const Victim = await ethers.getContractFactory("King");
     victim = await Victim.connect(deployer).deploy({ value: 1 });
     const Attacker = await ethers.getContractFactory("AttackingKing");

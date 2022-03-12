@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-import "./Preservation.sol";
+import "./Denial.sol";
 
-contract AttackingPreservation {
+contract AttackingDenial {
     address public contractAddress;
 
     constructor(address _contractAddress) {
