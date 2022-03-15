@@ -15,14 +15,9 @@ describe("Attacking Denial", function () {
     attacker = await Attacker.connect(hacker).deploy(victim.address);
   });
 
-  async function hackContract() {
-    // Code me!
-  }
-
   // Get this to pass!
   it("Succesfully stop the owner from withdrawing", async () => {
-    // actually not sure how to test this one...
-    await hackContract();
+    await attacker.hackContract();
     const provider = waffle.provider;
     const balanceBefore = await provider.getBalance(deployer.address);
     await victim.withdraw();

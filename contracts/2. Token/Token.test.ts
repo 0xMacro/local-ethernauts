@@ -12,13 +12,9 @@ describe("Attacking Token", function () {
     attacker = await Attacker.deploy(victim.address);
   });
 
-  async function hackContract() {
-    // Code me!
-  }
-
   // Get this to pass!
   it("Succesfully get your hands on more than 20 tokens", async () => {
-    await hackContract();
+    await attacker.hackContract();
     const tokens = await victim.balanceOf(attacker.address);
     expect(tokens).to.be.above(20);
   });

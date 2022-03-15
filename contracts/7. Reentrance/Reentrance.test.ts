@@ -12,14 +12,10 @@ describe("Attacking Reentrance", function () {
     attacker = await Attacker.deploy(victim.address);
   });
 
-  async function hackContract() {
-    // Code me!
-  }
-
   // Get this to pass!
   it("Succesfully take all the ETH out of the contract", async () => {
+    await attacker.hackContract();
     const provider = waffle.provider;
-    await hackContract();
     const balance = await provider.getBalance(victim.address);
     expect(balance).to.equal(0);
   });

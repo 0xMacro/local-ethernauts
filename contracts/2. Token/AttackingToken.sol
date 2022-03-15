@@ -8,4 +8,8 @@ contract AttackingToken {
     constructor(address _contractAddress) public {
         contractAddress = _contractAddress;
     }
+
+    function hackContract() external {
+        // Code me!
+    }
 }

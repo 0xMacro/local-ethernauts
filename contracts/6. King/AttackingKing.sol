@@ -8,4 +8,9 @@ contract AttackingKing {
     constructor(address _contractAddress) {
         contractAddress = _contractAddress;
     }
+
+    function hackContract() external {
+        // Code me!
+        // Don't send more than 100 eth
+    }
 }

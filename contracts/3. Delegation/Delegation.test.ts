@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 
 let victim: any;
+let attacker: any;
 let hacker: any;
 let delegateContract: any;
 let deployer: any;
@@ -16,16 +17,12 @@ describe("Attacking Delegation", function () {
     const Victim = await ethers.getContractFactory("Delegation");
     victim = await Victim.connect(deployer).deploy(delegateContract.address);
     const Attacker = await ethers.getContractFactory("AttackingDelegation");
-    await Attacker.deploy(victim.address);
+    attacker = await Attacker.deploy(victim.address);
   });
-
-  async function hackContract() {
-    // Code me!
-  }
 
   // Get this to pass!
   it("Succesfully taken ownership", async () => {
-    await hackContract();
+    await attacker.hackContract();
     const owner = await victim.owner();
     expect(owner).to.be.equal(hacker.address);
   });

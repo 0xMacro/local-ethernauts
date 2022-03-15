@@ -12,13 +12,9 @@ describe("Attacking CoinFlip", function () {
     attacker = await Attacker.deploy(victim.address);
   });
 
-  async function hackContract() {
-    // Code me!
-  }
-
   // Get this to pass!
   it("Succesfully guessess the correct outcome 10 times in a row", async () => {
-    await hackContract();
+    await attacker.hackContract();
     const consecutiveWins = await victim.consecutiveWins();
     expect(consecutiveWins).to.be.equal(10);
   });

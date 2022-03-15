@@ -8,4 +8,8 @@ contract AttackingDenial {
     constructor(address _contractAddress) {
         contractAddress = _contractAddress;
     }
+
+    function hackContract() external {
+        // Code me!
+    }
 }

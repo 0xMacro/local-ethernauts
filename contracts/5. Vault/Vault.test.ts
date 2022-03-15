@@ -2,6 +2,7 @@ import { expect } from "chai";
 import { ethers } from "hardhat";
 
 let victim: any;
+let attacker;
 
 describe("Attacking Vault", function () {
   beforeEach(async () => {
@@ -10,7 +11,7 @@ describe("Attacking Vault", function () {
       ethers.utils.formatBytes32String("A very strong password")
     );
     const Attacker = await ethers.getContractFactory("AttackingVault");
-    await Attacker.deploy(victim.address);
+    attacker = await Attacker.deploy(victim.address);
   });
 
   async function hackContract() {
