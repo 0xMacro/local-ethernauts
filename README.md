@@ -16,7 +16,7 @@ This challenge is based on https://ethernaut.openzeppelin.com/
   - **AttackingCoinFlip.sol**: This is the malicious contract where you'll code the logic to exploit the vulnerable contract!
   - **CoinFlip.test.ts**: This is the file where you'll be able to test if the contract has been breached
   - **CoinFlipHelper.ts**: Not all challenges have this `Helper` file! Only the ones that require you to use `ethers` to interact with your contract do, which you can do right here! This function is already imported into the tests, so don't worry about anything other than coding!
-  - And finally, the **README**. On this one you'll get level instructions, along with all the resources needed to clear it!
+  - And finally, the **README**. On this one you'll get all level instructions!
 - After you're done writing your hack, run the following command to run the tests and see if you succesfully breached the contract:
   - `npx hardhat test contracts/{contract directory}/{contract name}.test.ts`
   - Example: `npx hardhat test "contracts/1. CoinFlip/CoinFlip.test.ts"`
