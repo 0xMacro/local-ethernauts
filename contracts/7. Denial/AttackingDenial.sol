@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-import "./CoinFlip.sol";
+import "./Denial.sol";
 
-contract AttackingCoinFlip {
+contract AttackingDenial {
     address public contractAddress;
 
     constructor(address _contractAddress) {
@@ -11,5 +11,9 @@ contract AttackingCoinFlip {
 
     function hackContract() external {
         // Code me!
+    }
+
+    receive() external payable {
+        assert(false);
     }
 }
