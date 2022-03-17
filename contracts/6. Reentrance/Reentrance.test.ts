@@ -7,7 +7,7 @@ let attacker: any;
 describe("Attacking Reentrance", function () {
   beforeEach(async () => {
     const Victim = await ethers.getContractFactory("Reentrance");
-    victim = await Victim.deploy({ value: 3 });
+    victim = await Victim.deploy({ value: 5 });
     const Attacker = await ethers.getContractFactory("AttackingReentrance");
     attacker = await Attacker.deploy(victim.address, { value: 1 });
   });

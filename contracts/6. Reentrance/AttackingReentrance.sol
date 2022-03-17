@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-import "./Denial.sol";
+import "./Reentrance.sol";
 
-contract AttackingDenial {
-    address public contractAddress;
+contract AttackingReentrance {
+    address payable public contractAddress;
 
-    constructor(address _contractAddress) {
+    constructor(address payable _contractAddress) payable {
         contractAddress = _contractAddress;
     }
 

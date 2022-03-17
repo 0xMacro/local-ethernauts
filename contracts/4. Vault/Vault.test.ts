@@ -3,7 +3,6 @@ import { ethers, waffle } from "hardhat";
 import helper from "./VaultHelper";
 
 let victim: any;
-let attacker;
 
 describe("Attacking Vault", function () {
   beforeEach(async () => {

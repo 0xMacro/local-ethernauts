@@ -15,14 +15,13 @@ contract Reentrance {
         return balances[_who];
     }
 
-    function withdraw(uint256 _amount) public {
-        if (balances[msg.sender] >= _amount) {
-            console.log("inside withdraw: %s", address(this).balance);
-            (bool result, ) = msg.sender.call{value: _amount}("");
+    function withdraw() public {
+        if (balances[msg.sender] >= 1) {
+            (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
             if (result) {
-                _amount;
+                balances[msg.sender];
             }
-            balances[msg.sender] -= _amount;
+            balances[msg.sender] = 0;
         }
     }
 

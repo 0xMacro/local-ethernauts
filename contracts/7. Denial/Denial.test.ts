@@ -10,18 +10,25 @@ describe("Attacking Denial", function () {
     const [hacker, denialDeployer] = await ethers.getSigners();
     deployer = denialDeployer;
     const Victim = await ethers.getContractFactory("Denial");
-    victim = await Victim.connect(denialDeployer).deploy();
+    victim = await Victim.connect(denialDeployer).deploy({
+      value: ethers.utils.parseEther("100"),
+    });
     const Attacker = await ethers.getContractFactory("AttackingDenial");
     attacker = await Attacker.connect(hacker).deploy(victim.address);
+    victim.setWithdrawPartner(attacker.address);
   });
 
   // Get this to pass!
   it("Succesfully stop the owner from withdrawing", async () => {
     await attacker.hackContract();
     const provider = waffle.provider;
-    const balanceBefore = await provider.getBalance(deployer.address);
+    const balanceBefore = ethers.utils.formatEther(
+      await provider.getBalance(deployer.address)
+    );
     await victim.withdraw();
-    const balanceAfter = await provider.getBalance(deployer.address);
+    const balanceAfter = ethers.utils.formatEther(
+      await provider.getBalance(deployer.address)
+    );
     expect(balanceBefore).to.equal(balanceAfter);
   });
 });
