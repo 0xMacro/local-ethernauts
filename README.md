@@ -19,3 +19,7 @@ This challenge is based on https://ethernaut.openzeppelin.com/
 - After you're done writing your hack, run the following command to run the tests and see if you succesfully breached the contract:
   - `npx hardhat test contracts/{contract directory}/{contract name}.test.ts`
   - Example: `npx hardhat test "contracts/1. CoinFlip/CoinFlip.test.ts"`
+
+# Helpful Tip
+
+- You can console.log in solidity using hardhat! Read here for more details: https://hardhat.org/tutorial/debugging-with-hardhat-network.html
