@@ -8,3 +8,7 @@
 # Hints
 
 - Understanding how the transfer works in solidity and how revert works will help you complete this challenge
+- Understanding how fallback functions work in solidity will also help you complete this challenge
+- Understanding revert, assert, and require will also help you complete this challenge
+
+- Note: You can pass King's test without using a KingHelper.ts file, so we have removed it for you

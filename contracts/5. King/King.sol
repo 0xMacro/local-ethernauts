@@ -18,7 +18,6 @@ contract King {
         king.transfer(msg.value);
         king = payable(msg.sender);
         prize = msg.value;
-        console.log("king receive");
     }
 
     function _king() public view returns (address payable) {
