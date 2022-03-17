@@ -11,7 +11,6 @@ contract King {
         owner = payable(msg.sender);
         king = payable(msg.sender);
         prize = msg.value;
-        console.log("constructor");
     }
 
     receive() external payable {
@@ -19,15 +18,14 @@ contract King {
         king.transfer(msg.value);
         king = payable(msg.sender);
         prize = msg.value;
+        console.log("king receive");
     }
 
     function _king() public view returns (address payable) {
-        console.log("inside King");
         return king;
     }
 
     function _prize() public view returns (uint256) {
-        console.log("inside prize");
         return prize;
     }
 }

@@ -5,3 +5,4 @@
 # Hints
 
 - Understanding delegatecall will help you complete this challenge
+- Note: You will only need to add code AttackingDelegation.sol to complete this challenge, so we have removed DelegationHelper.ts

