@@ -1,6 +1,6 @@
 # Vault
 
-- Pass this challenge by unlocking the vault, on this challenge you'll need to code `hackContract()` on `Vault.test.ts` to get the private data!
+- Pass this challenge by unlocking the vault, on this challenge you'll need to code on `VaultHelper.ts` to get the private data!
 
 # Hints
 
