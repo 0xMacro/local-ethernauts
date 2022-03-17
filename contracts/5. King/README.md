@@ -11,4 +11,3 @@
 - Understanding how fallback functions work in solidity will also help you complete this challenge
 - Understanding revert, assert, and require will also help you complete this challenge
 
-- Note: You can pass King's test without using a KingHelper.ts file, so we have removed it for you
