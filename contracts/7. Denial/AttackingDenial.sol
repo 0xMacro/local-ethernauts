@@ -3,17 +3,11 @@ pragma solidity ^0.8.9;
 import "./Denial.sol";
 
 contract AttackingDenial {
-    address public contractAddress;
+    address payable public contractAddress;
 
-    constructor(address _contractAddress) {
+    constructor(address payable _contractAddress) {
         contractAddress = _contractAddress;
     }
 
-    function hackContract() external {
-        // Code me!
-    }
-
-    receive() external payable {
-        assert(false);
-    }
+    //Code me!
 }

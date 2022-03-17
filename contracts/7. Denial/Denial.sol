@@ -20,14 +20,10 @@ contract Denial {
     // withdraw 1% to recipient and 1% to owner
     function withdraw() public {
         uint256 amountToSend = address(this).balance / (100);
-        console.log("amount to send: %s", amountToSend);
-        console.log("owner: %s", owner);
         // perform a call without checking return
         // The recipient can revert, the owner will still get their share
         partner.call{value: amountToSend}("");
-        console.log("does it get here? %s", gasleft());
-        owner.transfer(amountToSend);
-        console.log("does it get here? 2 %s", gasleft());
+        owner.call{value: amountToSend}("");
         // keep track of last withdrawal time
         timeLastWithdrawn = block.timestamp;
         withdrawPartnerBalances[partner] =
