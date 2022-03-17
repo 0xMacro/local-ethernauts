@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers, waffle } from "hardhat";
 
-const helper = () => {
+const helper = async () => {
   /* 
     Add code here that will help you pass the test
     Note: Unlock without using the string "A very strong password"
