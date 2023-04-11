@@ -18,9 +18,8 @@ contract Reentrance {
     function withdraw() public {
         if (balances[msg.sender] >= 1) {
             (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
-            if (result) {
-                balances[msg.sender];
-            }
+            require(result, "ETH transfer failed");
+
             balances[msg.sender] = 0;
         }
     }
